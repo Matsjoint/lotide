@@ -47,10 +47,10 @@ const assertEqual = function(actual, expected) {
 
 
 const letters = function (sentence){
-  var freq = {};
+  const freq = {};
   
-  for (var i=0; i<sentence.length;i++) {
-      var character = sentence.charAt(i);
+  for (let i=0; i<sentence.length;i++) {
+      const character = sentence.charAt(i);
       if (freq[character]) {
          freq[character]++;
       } else {
