@@ -8,57 +8,15 @@ const assertEqual = function(actual, expected) {
   }
 };
 
-// const letters = function (sentence) {
-//   // declare an object to return to store count of each letter/character 
-//   const count = {}; 
-//   const removeSpace = sentence.split('')
-//   // loop through array 
-//   for (const letter in sent) {
-//     // if new letter, add as key to count
-//     if () {
-
-//     }
-//     // if letter matches key, add 1 to count 
-
-//   }
-//   // output object with each iterated letter as a key; a
-//   // and have the value equal the total number of times that letter was looped
-//   return count; 
-// }
-
-
-
-// Stack OverFlow: https://stackoverflow.com/questions/35810226/count-letters-in-a-text-and-produce-an-object-with-results
-
-// const letters = function (sentence) {
-//   const count = {};
-
-  // split sentence and call function on each element
-//   sentence.split(' ').forEach(function(e) {
-//     count[e] = {};
-//     e.split('').forEach(function(c) {
-//         if(!count[e][c]) { count[e][c]=0; }
-//         count[e][c]++;
-//     });
-// });
-
-// return count;
-// }
-
-
-const letters = function (sentence){
-  const freq = {};
-  
-  for (let i=0; i<sentence.length;i++) {
-      const character = sentence.charAt(i);
-      if (freq[character]) {
-         freq[character]++;
-      } else {
-         freq[character] = 1;
-      }
-  }
-
-  return freq;
-};
-
-console.log(letters("There was once a dog"));
+const letters = function(sentence){
+  var count = {};
+  sentence.split('').filter(function(s) {
+    return s.match(/[a-z]/i); // get rid of anything not a letter
+  }).forEach(function(s) {
+    s = s.toLowerCase(); // convert to lowercase
+    count[s] = count[s] ? count[s]+1 : 1; // add to count for that letter
+  });
+  return count;
+ }
+ 
+ console.log(letters("As long as I'm learning something, I figure I'm OK - it's a decent day"));
